@@ -2,6 +2,7 @@ import qrcode
 from io import BytesIO
 from telegram import Update
 from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes
+import os
 
 # Function to start the bot
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
@@ -31,7 +32,7 @@ async def generate_qr(update: Update, context: ContextTypes.DEFAULT_TYPE) -> Non
 # Main function to run the bot
 def main():
     # Replace 'YOUR_BOT_TOKEN' with your bot token
-    TOKEN = "7681306911:AAHgcwZdwR8kJoa-Mp-TpQ9TCr1sko5tebQ"
+    TOKEN = os.getenv("token")
 
     # Create the Application
     app = Application.builder().token(TOKEN).build()
